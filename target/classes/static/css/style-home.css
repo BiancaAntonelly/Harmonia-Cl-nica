@@ -229,6 +229,7 @@ CSS PARA OS CARDS DE HOME MEDICINA
     align-items: center;
     justify-content: center;
 }
+
 .ag-courses_item {
     width: 400px;
     height: auto;
@@ -282,6 +283,69 @@ CSS PARA OS CARDS DE HOME MEDICINA
     height: 128px;
     width: 128px;
     background-color: #4E9DB2;
+    z-index: 1;
+    position: absolute;
+    top: -75px;
+    right: -75px;
+    border-radius: 50%;
+    -webkit-transition: all .5s ease;
+    -o-transition: all .5s ease;
+    transition: all .5s ease;
+}
+
+.bg-light-nutricao{background-color:#7ED957}
+
+
+.ag-format-container-nutricao {
+    width: 1300px;
+    margin: 0 auto;
+}
+.ag-courses-item-link_nutricao {
+    display: block;
+    padding: 30px 20px;
+    background-color: green;
+    overflow: hidden;
+    position: relative;
+}
+.ag-courses-item-link_nutricao:hover,
+.ag-courses-item-link_nutricao:hover .ag-courses-item_horario {
+    text-decoration: none;
+    color: #FFF;
+}
+.ag-courses-item-link_nutricao:hover .ag-courses-item_bg {
+    -webkit-transform: scale(10);
+    -ms-transform: scale(10);
+    transform: scale(10);
+}
+.ag-courses-item_title {
+    min-height: 87px;
+    margin: 0 0 25px;
+    overflow: hidden;
+    font-weight: bold;
+    font-size: 30px;
+    color: #FFF;
+    z-index: 2;
+    position: relative;
+}
+.ag-courses-item_nutricao-box {
+    font-size: 18px;
+    color: green;
+    z-index: 2;
+    position: relative;
+    display: block;
+}
+.ag-courses-item_horario {
+    font-weight: bold;
+    color: #80002d;
+    -webkit-transition: color .5s ease;
+    -o-transition: color .5s ease;
+    transition: color .5s ease;
+    display: block;
+}
+.ag-courses-item_bg-nutricao {
+    height: 128px;
+    width: 128px;
+    background-color: #EFE9CF;
     z-index: 1;
     position: absolute;
     top: -75px;
