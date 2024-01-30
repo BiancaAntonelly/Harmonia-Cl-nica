@@ -310,33 +310,23 @@ CSS PARA OS CARDS DE HOME MEDICINA
 .ag-courses-item-link_nutricao:hover,
 .ag-courses-item-link_nutricao:hover .ag-courses-item_horario {
     text-decoration: none;
-    color: #FFF;
+    color: #7ED957;
 }
-.ag-courses-item-link_nutricao:hover .ag-courses-item_bg {
+.ag-courses-item-link_nutricao:hover .ag-courses-item_bg-nutricao {
     -webkit-transform: scale(10);
     -ms-transform: scale(10);
     transform: scale(10);
 }
-.ag-courses-item_title {
-    min-height: 87px;
-    margin: 0 0 25px;
-    overflow: hidden;
-    font-weight: bold;
-    font-size: 30px;
-    color: #FFF;
-    z-index: 2;
-    position: relative;
-}
 .ag-courses-item_nutricao-box {
     font-size: 18px;
-    color: green;
+    color: #7ED957;
     z-index: 2;
     position: relative;
     display: block;
 }
 .ag-courses-item_horario {
     font-weight: bold;
-    color: #80002d;
+    color:  #EFE9CF;
     -webkit-transition: color .5s ease;
     -o-transition: color .5s ease;
     transition: color .5s ease;
@@ -345,7 +335,7 @@ CSS PARA OS CARDS DE HOME MEDICINA
 .ag-courses-item_bg-nutricao {
     height: 128px;
     width: 128px;
-    background-color: #EFE9CF;
+    background-color: #016b1e;
     z-index: 1;
     position: absolute;
     top: -75px;

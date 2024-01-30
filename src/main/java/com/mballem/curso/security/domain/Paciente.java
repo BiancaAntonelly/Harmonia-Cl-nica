@@ -26,7 +26,7 @@ public class Paciente extends AbstractEntity {
 	
 	@OneToOne(cascade = CascadeType.REMOVE)
 	@JoinColumn(name = "id_usuario")
-	private Usuario usuario;
+	private User usuario;
 
 	public String getNome() {
 		return nome;
@@ -52,11 +52,11 @@ public class Paciente extends AbstractEntity {
 		this.agendamentos = agendamentos;
 	}
 
-	public Usuario getUsuario() {
+	public User getUsuario() {
 		return usuario;
 	}
 
-	public void setUsuario(Usuario usuario) {
+	public void setUsuario(User usuario) {
 		this.usuario = usuario;
 	}
 

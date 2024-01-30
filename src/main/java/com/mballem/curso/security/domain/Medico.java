@@ -43,7 +43,7 @@ public class Medico extends AbstractEntity {
 	
 	@OneToOne(cascade = CascadeType.REMOVE)
 	@JoinColumn(name = "id_usuario")
-	private Usuario usuario;
+	private User usuario;
 	
 	public Medico() {
 		super();
@@ -53,7 +53,7 @@ public class Medico extends AbstractEntity {
 		super.setId(id);
 	}
 
-	public Medico(Usuario usuario) {
+	public Medico(User usuario) {
 		this.usuario = usuario;
 	}
 
@@ -97,11 +97,11 @@ public class Medico extends AbstractEntity {
 		this.agendamentos = agendamentos;
 	}	
 
-	public Usuario getUsuario() {
+	public User getUsuario() {
 		return usuario;
 	}
 
-	public void setUsuario(Usuario usuario) {
+	public void setUsuario(User usuario) {
 		this.usuario = usuario;
 	}
 }
