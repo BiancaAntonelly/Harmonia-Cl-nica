@@ -93,6 +93,17 @@
 
 	</section>
 	<script	th:src="~{}" th:fragment="js"></script>
-	<script th:inline="javascript" th:fragment="inlinescript"></script>
+	<script th:inline="javascript" th:fragment="inlinescript">
+		//função para marcar os perfis do usuário
+		//só funciona para o javascript inline
+		$('#perfis').read(function (){
+			var perfis = [[${usuario.perfis}]];
+			//for
+			$.each(perfis, function(index, objeto){
+				$('#perfis  option[value="'+objeto.id +'"]').attr('selected', 'selected');
+			})
+
+		});
+	</script>
 </body>
 </html>

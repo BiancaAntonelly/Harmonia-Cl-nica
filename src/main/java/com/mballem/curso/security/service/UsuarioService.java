@@ -76,4 +76,10 @@ public class UsuarioService implements UserDetailsService {
         usuario.setSenha(senhaCriptografada);
         usuarioRepository.save(usuario);
     }
+
+    @Transactional(readOnly = true)
+    public Usuario buscarPorId(Long id){
+        return usuarioRepository.findById(id).get();
+        //para ter acesso ao objeto usuario utiliza o .get
+    }
 }
