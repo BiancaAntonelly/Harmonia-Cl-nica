@@ -2,6 +2,7 @@ package com.mballem.curso.security.web.controller;
 
 import com.mballem.curso.security.datatables.Datatables;
 import com.mballem.curso.security.domain.Perfil;
+import com.mballem.curso.security.domain.PerfilTipo;
 import com.mballem.curso.security.domain.Usuario;
 import com.mballem.curso.security.repository.EspecialidadeRepository;
 import com.mballem.curso.security.service.UsuarioService;
@@ -75,10 +76,30 @@ public class UsuarioController {
     //este metodo pega o id do usuario e pesquisa no banco de dados, pega as informações dele e retorna
     // para a pagina de cadastro preenchendo os campos com as informações do usuario
     @GetMapping("/editar/credenciais/usuario/{id}")
-    public ModelAndView preEditarCredenciais(@PathVariable("id")Long id){
+    public ModelAndView preEditarCredenciais(@PathVariable("id") Long id) {
 
         return new ModelAndView("usuario/cadastro", "usuario", usuarioService.buscarPorId(id));
     }
 
+    @GetMapping("/editar/dados/usuario/{id}/perfis/{perfis}")
+    public ModelAndView preEditarCadastroDadosPessoais(@PathVariable("id") Long usuarioId,
+                                                       @PathVariable("perfis") Long[] perfisId) {
+        Usuario usuario = usuarioService.buscarPorIdEPerfis(usuarioId, perfisId);
 
+        if (usuario.getPerfis().contains(new Perfil(PerfilTipo.ADMIN.getCod())) &&
+                !usuario.getPerfis().contains(new Perfil(PerfilTipo.MEDICO.getCod()))) {
+            return new ModelAndView("usuario/cadastro", "usuario", usuario);
+        } else if(usuario.getPerfis().contains(new Perfil(PerfilTipo.ADMIN.getCod())) &&
+                usuario.getPerfis().contains(new Perfil(PerfilTipo.MEDICO.getCod()))) {
+            return new ModelAndView("especialidade/especialidade");
+        } else if(usuario.getPerfis().contains(new Perfil(PerfilTipo.PACIENTE.getCod()))) {
+            ModelAndView model = new ModelAndView("error");
+            model.addObject("status", 403);
+            model.addObject("error", "Área restrita");
+            model.addObject("message", "Os dados do paciente é restrito somente a ele..");
+            return model;
+        }
+            return new ModelAndView("redirect:/u/lista");
+
+    }
 }

@@ -82,4 +82,9 @@ public class UsuarioService implements UserDetailsService {
         return usuarioRepository.findById(id).get();
         //para ter acesso ao objeto usuario utiliza o .get
     }
+
+    @Transactional(readOnly = true)
+    public Usuario buscarPorIdEPerfis(Long usuarioId, Long[] perfisId){
+        return usuarioRepository.findByIdAndPerfis(usuarioId, perfisId);
+    }
 }
