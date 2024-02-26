@@ -96,11 +96,11 @@
 	<script th:inline="javascript" th:fragment="inlinescript">
 		//função para marcar os perfis do usuário
 		//só funciona para o javascript inline
-		$('#perfis').read(function (){
+		$(document).ready(function() {
 			var perfis = [[${usuario.perfis}]];
 			//for
-			$.each(perfis, function(index, objeto){
-				$('#perfis  option[value="'+objeto.id +'"]').attr('selected', 'selected');
+			$.each(perfis, function(k, v){
+				$('#perfis  option[value="'+v.id +'"]').attr('selected', 'selected');
 			})
 
 		});
